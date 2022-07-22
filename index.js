@@ -7,11 +7,11 @@ const app = express();
 
 app.use(express.json()); // it has to be bofore all routes
 
+app.use('/users', usersRouter); // we wrote users here and remove it from router paths
+
 app.use('/', (req, res) => {
   res.json('welcome to server');
-}); // we wrote users here and remove it from router paths
-
-app.use('/users', usersRouter); // we wrote users here and remove it from router paths
+}); // it should be the last end point
 
 const CONNECTION_URL = process.env.DB_URL || 'mongodb+srv://SHOMANS:ffs1TAgYeh7hu9l0@cluster0.wmrug.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
