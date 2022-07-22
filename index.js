@@ -9,8 +9,8 @@ app.use(express.json()); // it has to be bofore all routes
 
 app.use('/users', usersRouter); // we wrote users here and remove it from router paths
 
-const CONNECTION_URL = 'mongodb+srv://SHOMANS:ffs1TAgYeh7hu9l0@cluster0.wmrug.mongodb.net/?retryWrites=true&w=majority';
-const PORT = 5000;
+const CONNECTION_URL = process.env.DB_URL || 'mongodb+srv://SHOMANS:ffs1TAgYeh7hu9l0@cluster0.wmrug.mongodb.net/?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(CONNECTION_URL)
