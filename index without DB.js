@@ -36,7 +36,6 @@ app.get('/users/all', (req, res) => {
 // get single user
 app.get('/user/:id', (req, res) => {
   console.log('congrats! you are getting data from / url');
-
   const userId = req.params.id;
 
   // find single user from fake data array
