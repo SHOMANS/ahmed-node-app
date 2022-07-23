@@ -1,11 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import usersRouter from './src/routes/users.js'; // import user router from its file
 
-const app = express();
+const app = express(); // install it (npm i cors) then use it as middleware to allow you make requests from anyware
 
 app.use(express.json()); // it has to be bofore all routes
+app.use(cors());
 
 app.use('/users', usersRouter); // we wrote users here and remove it from router paths
 
